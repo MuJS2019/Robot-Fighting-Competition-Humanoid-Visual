@@ -40,9 +40,3 @@ dst = cv.dilate(dst,None,iterations=2) 	#放大白色区域
 find_angel(self,gray):
 #寻路算法,然后找到4个白点位置，根据白点位置设计算法，控制底盘直行，左转， 右转，并最终走到目标去， 最后在目标去挥动。
 robotPi_Cmd 、 robotpi_serOp 和 robotpi_movement 用于机器人控制和底盘的运动，控制指令通过树莓派的串口发送给 arduino，再由 arduino 接收后，控制机器人执行各种移动和击打等动作。 
-
-系统测试： 
-测试用例	碰撞次数	时长	响应精度
-测试1	    0	       16秒	优
-测试2   	1	       17秒	优
-测试3   	0	       15秒	优
