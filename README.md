@@ -29,14 +29,9 @@ robot_movement调动Cmd和SerOp，一个方法对应一套参数一个命令
  
 软件策略： 
 软件编程方面，采用 Python 语言，需要在开始引入 cv2、robotPi、 robotpi_movement 等多个库，其中 cv2 用于 opencv 的引入，用来实现 USB 摄像头的图像采集，并对采集的图像进行处理，主要涉及的函数如下: 
-self.cap = cv2.VideoCapture(self.CAM_NUM) 
-#用于获取摄像头数据 
-ret, frame = self.cap.read() 	  
-#获取视频中的图像帧
-#转换为灰度图像 
-gray = cv.cvtColor(img,cv.COLOR_RGB2GRAY) 
-#进行二值化 
+self.cap = cv2.VideoCapture(self.CAM_NUM) #用于获取摄像头数据 
+ret, frame = self.cap.read() #获取视频中的图像帧
+gray = cv.cvtColor(img,cv.COLOR_RGB2GRAY) #转换为灰度图像并进行二值化 
 dst = cv.dilate(dst,None,iterations=2) 	#放大白色区域 
-find_angel(self,gray):
-#寻路算法,然后找到4个白点位置，根据白点位置设计算法，控制底盘直行，左转， 右转，并最终走到目标去， 最后在目标去挥动。
-robotPi_Cmd 、 robotpi_serOp 和 robotpi_movement 用于机器人控制和底盘的运动，控制指令通过树莓派的串口发送给 arduino，再由 arduino 接收后，控制机器人执行各种移动和击打等动作。 
+find_angel(self,gray):#寻路算法,然后找到4个白点位置，根据白点位置设计算法，控制底盘直行，左转， 右转，并最终走到目标去， 最后在目标去挥动。
+robotPi_Cmd 、 robotpi_serOp 和 robotpi_movement #用于机器人控制和底盘的运动，控制指令通过树莓派的串口发送给 arduino，再由 arduino 接收后，控制机器人执行各种移动和击打等动作。 
